@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gajic.nemanja.billsreminder.AddBill"
+    android:background="@color/colorBackgroundC"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert title"
+        android:textSize="@dimen/largeText"
+        android:textColor="@color/colorWhite"/>
+
+    <EditText
+        android:id="@+id/title_input"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"/>
+
+    <!-- Date -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert last day"
+        android:textSize="@dimen/largeText"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/date_input"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="dd/mm/yyyy"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"/>
+
+    <!-- Amount -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert amount"
+        android:textSize="@dimen/largeText"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/amount_input"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="0e"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="30dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_check_black_24dp"
+        android:tint="@color/colorWhite"
+        android:onClick="addBill"/>
+
+</LinearLayout>

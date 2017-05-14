@@ -1,0 +1,25 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gajic.nemanja.billsreminder.HistoryFragment"
+    android:background="@color/colorBackgroundC">
+
+    <ListView
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+    <TextView android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="@dimen/smallText"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="History is empty" />
+
+</FrameLayout>

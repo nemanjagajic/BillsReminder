@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#404040</color>
+    <color name="colorPrimaryDark">#333333</color>
+    <color name="colorAccent">#26A69A</color>
+    <color name="colorBackgroundC">#595959</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorRed">#EF5350</color>
+    <color name="colorGrayLight">#BDBDBD</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorGreenPaid">#008073</color>
+    <color name="colorGreenPaidRight">#00665c</color>
+    <color name="colorNoteText">#cccccc</color>
+</resources>
