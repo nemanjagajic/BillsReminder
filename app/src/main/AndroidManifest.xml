@@ -23,6 +23,10 @@
             android:name=".AddBill"
             android:label="Add bill"></activity>
         <activity android:name=".AddNote"></activity>
+        <provider
+            android:name=".data.NotesProvider"
+            android:authorities="com.gajic.nemanja.billsreminder"
+            android:exported="false" />
     </application>
 
 </manifest>

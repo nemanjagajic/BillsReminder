@@ -26,6 +26,8 @@ public class AddBill extends AppCompatActivity {
         BillsFragment.billItems.add(billItem);
         BillsFragment.notifyChanges();
         Toast.makeText(this, "Bill added", Toast.LENGTH_SHORT).show();
+
+        finish();
     }
 
 }

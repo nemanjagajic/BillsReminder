@@ -3,7 +3,7 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorBackgroundC">
 
     <TextView
         android:id="@+id/text"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:src="@drawable/ic_close_white_32dp_1x"
-        android:background="#00000000"
+        android:background="@color/colorBackgroundC"
         android:layout_gravity="center"
         android:tint="@color/colorRed"
         android:onClick="deleteNoteClicked"

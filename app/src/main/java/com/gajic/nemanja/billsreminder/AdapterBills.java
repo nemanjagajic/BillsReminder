@@ -60,11 +60,9 @@ public class AdapterBills extends ArrayAdapter<BillItem> {
         RelativeLayout relativeLayout = (RelativeLayout)listItemView.findViewById(R.id.relative_layout_left);
         LinearLayout linearLayout = (LinearLayout)listItemView.findViewById(R.id.linear_layout_right);
 
-        int color = ContextCompat.getColor(getContext(), currentBillItem.getItemsColorResourceLeft());
-        relativeLayout.setBackgroundColor(color);
-        int color2 = ContextCompat.getColor(getContext(), currentBillItem.getItemsColorResourceRight());
-        linearLayout.setBackgroundColor(color2);
-
+        // Setting title color
+        int titleColor = ContextCompat.getColor(getContext(), currentBillItem.getItemsTitleColor());
+        title.setTextColor(titleColor);
 
         return listItemView;
     }

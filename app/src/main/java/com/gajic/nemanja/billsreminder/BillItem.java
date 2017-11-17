@@ -9,16 +9,14 @@ public class BillItem {
     private String title;
     private String date;
     private String amount;
-    private int itemsColorResourceLeft;
-    private int itemsColorResourceRight;
+    private int itemsTitleColor;
     private int buttonsLeftPadding; // needed for recognizing if in BillsFragment, could be any attribute
 
     public BillItem(String title, String date, String amount) {
         this.title = title;
         this.date = date;
         this.amount = amount;
-        itemsColorResourceLeft = R.color.colorPrimary;
-        itemsColorResourceRight = R.color.colorPrimaryDark;
+        itemsTitleColor = R.color.colorWhite;
         buttonsLeftPadding = 0;
     }
 
@@ -35,8 +33,9 @@ public class BillItem {
         return amount;
     }
 
-    public int getItemsColorResourceLeft() { return itemsColorResourceLeft;}
-    public int getItemsColorResourceRight() { return itemsColorResourceRight;}
+    public int getItemsTitleColor() {
+        return itemsTitleColor;
+    }
 
     public int getButtonsLeftPadding() { return buttonsLeftPadding; }
 
@@ -53,9 +52,9 @@ public class BillItem {
         this.amount = amount;
     }
 
-    public void setItemsColorResourceLeft(int itemsColorResourceLeft) { this.itemsColorResourceLeft = itemsColorResourceLeft; }
-
-    public void setItemsColorResourceRight(int itemsColorResourceRight) { this.itemsColorResourceRight = itemsColorResourceRight; }
+    public void setItemsTitleColor(int itemsTitleColor) {
+        this.itemsTitleColor = itemsTitleColor;
+    }
 
     public void setButtonsLeftPadding(int buttonsLeftPadding) {
         this.buttonsLeftPadding = buttonsLeftPadding;

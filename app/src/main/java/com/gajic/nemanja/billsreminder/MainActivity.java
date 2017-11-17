@@ -1,12 +1,15 @@
 package com.gajic.nemanja.billsreminder;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import com.gajic.nemanja.billsreminder.data.NoteContract;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         NotesFragment.notes.removeAll(NotesFragment.notes);
         NotesFragment.notifyChanges();
         Toast.makeText(this, "All notes deleted", Toast.LENGTH_SHORT).show();
+
+        // Delete from database
+        getContentResolver().delete(NoteContract.NoteEntry.CONTENT_URI, null, null);
     }
 
     // Called when delete button of item is clicked
@@ -74,10 +80,15 @@ public class MainActivity extends AppCompatActivity {
     // Called when delete button of note item is clicked
     public void deleteNoteClicked(View view) {
         int position = Integer.parseInt(view.getContentDescription().toString());
-        NotesFragment.notes.remove(position);
+        // Remove from list
+        NoteItem removedNote = NotesFragment.notes.remove(position);
         NotesFragment.notifyChanges();
 
-        Toast.makeText(this, "Note deleted", Toast.LENGTH_SHORT).show();
+        // Remove from db
+        // We find item by comparing column values,
+        // even though it's not a good practice, with this logic it works fine
+        Uri uri = Uri.withAppendedPath(NoteContract.NoteEntry.CONTENT_URI, removedNote.getText());
+        getContentResolver().delete(uri, null, null);
     }
 
     // Called when payed button of item is clicked
@@ -90,12 +101,11 @@ public class MainActivity extends AppCompatActivity {
             // Adding item to HistoryFragment
             BillItem item = BillsFragment.billItems.get(position);
             billTitle = item.getTitle();
-            item.setItemsColorResourceLeft(R.color.colorGreenPaid);
-            item.setItemsColorResourceRight(R.color.colorGreenPaidRight);
             item.setButtonsLeftPadding(1);
             HistoryFragment.historyList.add(item);
             HistoryFragment.notifyChanges();
-
+            // Setting title color
+            item.setItemsTitleColor(R.color.colorTitlePaid);
             // Deleting item from BillsFragment
             BillsFragment.billItems.remove(position);
             BillsFragment.notifyChanges();
