@@ -60,13 +60,14 @@ public class BillItem {
         this.buttonsLeftPadding = buttonsLeftPadding;
     }
 
-    //toString
     @Override
     public String toString() {
         return "BillItem{" +
                 "title='" + title + '\'' +
                 ", date='" + date + '\'' +
-                ", amount=" + amount +
+                ", amount='" + amount + '\'' +
+                ", itemsTitleColor=" + itemsTitleColor +
+                ", buttonsLeftPadding=" + buttonsLeftPadding +
                 '}';
     }
 }

@@ -20,10 +20,13 @@ public class AddNote extends AppCompatActivity {
 
     public void addNote(View view) {
         EditText text = (EditText)findViewById(R.id.note_text);
+
+        // Add to database
         ContentValues values = new ContentValues();
         values.put(NoteContract.NoteEntry.COLUMN_NOTES_TEXT, text.getText().toString());
         getContentResolver().insert(NoteContract.NoteEntry.CONTENT_URI, values);
 
+        // Add to list
         NotesFragment.notes.add(new NoteItem(text.getText().toString()));
         NotesFragment.notifyChanges();
 

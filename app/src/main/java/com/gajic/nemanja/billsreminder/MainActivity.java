@@ -1,5 +1,6 @@
 package com.gajic.nemanja.billsreminder;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.gajic.nemanja.billsreminder.data.BillContract;
 import com.gajic.nemanja.billsreminder.data.NoteContract;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,7 +76,9 @@ public class MainActivity extends AppCompatActivity {
             HistoryFragment.notifyChanges();
         }
 
-        Toast.makeText(this, "Bill \"" + billTitle + "\" deleted", Toast.LENGTH_SHORT).show();
+        // Remove from database
+        Uri uriToDelete = Uri.withAppendedPath(BillContract.BillEntry.CONTENT_URI, billTitle);
+        getContentResolver().delete(uriToDelete, null, null);
     }
 
     // Called when delete button of note item is clicked
@@ -103,7 +107,18 @@ public class MainActivity extends AppCompatActivity {
             billTitle = item.getTitle();
             item.setButtonsLeftPadding(1);
             HistoryFragment.historyList.add(item);
+
+            // Update database title color
+            ContentValues values = new ContentValues();
+            values.put(BillContract.BillEntry.COLUMN_BILLS_TITLE, item.getTitle());
+            values.put(BillContract.BillEntry.COLUMN_BILLS_DATE, item.getDate());
+            values.put(BillContract.BillEntry.COLUMN_BILLS_AMOUNT, item.getAmount());
+            values.put(BillContract.BillEntry.COLUMN_BILLS_TITLE_COLOR, R.color.colorTitlePaid);
+            Uri uri = Uri.withAppendedPath(BillContract.BillEntry.CONTENT_URI, item.getTitle());
+            getContentResolver().update(uri, values, null, null);
+
             HistoryFragment.notifyChanges();
+
             // Setting title color
             item.setItemsTitleColor(R.color.colorTitlePaid);
             // Deleting item from BillsFragment

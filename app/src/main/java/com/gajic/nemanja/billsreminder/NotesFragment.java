@@ -32,7 +32,7 @@ public class NotesFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Initializing notes and db
+        // Initializing notes
         notes = new ArrayList<>();
 
         // Fill notes from database

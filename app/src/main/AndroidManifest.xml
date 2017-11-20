@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_bills_reminder"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -26,6 +26,10 @@
         <provider
             android:name=".data.NotesProvider"
             android:authorities="com.gajic.nemanja.billsreminder"
+            android:exported="false" />
+        <provider
+            android:name=".data.BillsProvider"
+            android:authorities="com.gajic.nemanja.billsreminder.bill"
             android:exported="false" />
     </application>
 

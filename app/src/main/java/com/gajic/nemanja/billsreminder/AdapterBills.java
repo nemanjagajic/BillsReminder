@@ -1,6 +1,7 @@
 package com.gajic.nemanja.billsreminder;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -55,14 +56,10 @@ public class AdapterBills extends ArrayAdapter<BillItem> {
         payedButton.setContentDescription(position + "");
         payedButton.setPadding(currentBillItem.getButtonsLeftPadding(), 0, 0, 0);
 
-
-        // Setting items background color
-        RelativeLayout relativeLayout = (RelativeLayout)listItemView.findViewById(R.id.relative_layout_left);
-        LinearLayout linearLayout = (LinearLayout)listItemView.findViewById(R.id.linear_layout_right);
-
-        // Setting title color
-        int titleColor = ContextCompat.getColor(getContext(), currentBillItem.getItemsTitleColor());
-        title.setTextColor(titleColor);
+        // Setting color to title
+        if (currentBillItem.getItemsTitleColor() == R.color.colorTitlePaid) {
+            title.setTextColor(getContext().getResources().getColor(R.color.colorTitlePaid));
+        }
 
         return listItemView;
     }
